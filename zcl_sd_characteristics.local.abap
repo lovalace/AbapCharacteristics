@@ -41,8 +41,8 @@ CLASS Core IMPLEMENTATION.
    "Mapping Matnr and charg for read characteristics.
    FIELD-SYMBOLS: <_table> TYPE STANDARD TABLE.
    ASSIGN table->* TO <_table>.
-   DATA(_Component_Matnr) = COND #( WHEN map_matnr is not initial THEN map_matnr else 'MATNR' ).
-   DATA(_Component_Charg) = COND #( WHEN map_Charg is not initial THEN map_matnr else 'CHARG' ).
+   DATA(_Component_Matnr) = COND #( WHEN map_matnr is not initial THEN map_matnr else 'MATNR' ). "Material number
+   DATA(_Component_Charg) = COND #( WHEN map_Charg is not initial THEN map_matnr else 'CHARG' ). "Batch number
    LOOP AT <_table> ASSIGNING FIELD-SYMBOL(<line>).
    ASSIGN COMPONENT _Component_Matnr  OF STRUCTURE <line> TO FIELD-SYMBOL(<_matnr>).
    ASSIGN COMPONENT _Component_Charg  OF STRUCTURE <line> TO FIELD-SYMBOL(<_charg>).
